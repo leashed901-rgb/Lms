@@ -1,0 +1,10 @@
+import { notFound } from 'next/navigation';
+import { getProgramBySlug } from '@/lib/courses-data';
+import { ProgramDetailView } from '@/components/ProgramDetailView';
+
+export default function ProfessionalDogTrainerPage() {
+  const program = getProgramBySlug('professional-dog-trainer');
+  if (!program) notFound();
+
+  return <ProgramDetailView program={program} />;
+}

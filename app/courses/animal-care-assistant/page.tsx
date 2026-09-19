@@ -1,0 +1,10 @@
+import { notFound } from 'next/navigation';
+import { getProgramBySlug } from '@/lib/courses-data';
+import { ProgramDetailView } from '@/components/ProgramDetailView';
+
+export default function AnimalCareAssistantPage() {
+  const program = getProgramBySlug('animal-care-assistant');
+  if (!program) notFound();
+
+  return <ProgramDetailView program={program} />;
+}

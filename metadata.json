@@ -1,0 +1,6 @@
+{
+  "name": "LEASHED - Professional Pet Care Education",
+  "description": "Industry-leading professional pet care education, career training programs, and certifications for aspiring dog groomers, pet sitters, and pet care business owners.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
