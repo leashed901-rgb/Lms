@@ -56,7 +56,7 @@ export function ProgramCard({ program, onSelect }: ProgramCardProps) {
     <Link
       href={targetHref}
       onClick={() => onSelect?.(program)}
-      className="group relative flex flex-col bg-white rounded-lg overflow-hidden transition-all duration-200 border border-[#e5decb] hover:border-[#b8ad98] cursor-pointer block"
+      className="group relative flex flex-col bg-white rounded-xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(22,28,24,0.06)] hover:shadow-[0_12px_28px_-4px_rgba(22,28,24,0.12)] transition-all duration-300 border border-[#eeebe3] hover:border-[#dfdacd] cursor-pointer block"
     >
       {/* Card Image Container */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#e8e4db]">
@@ -65,41 +65,34 @@ export function ProgramCard({ program, onSelect }: ProgramCardProps) {
           alt={program.imageAlt}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          className="object-cover object-center transition-transform duration-300 group-hover:scale-102"
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           referrerPolicy="no-referrer"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
       </div>
 
-      {/* Body Area */}
-      <div className="p-5 flex-1 flex flex-col justify-between">
-        <div className="flex items-center gap-2 mb-3">
-          <div className="w-8 h-8 rounded-md bg-[#f4eee5] border border-[#e4dcce] flex items-center justify-center shrink-0">
-            {renderIcon(program.iconType)}
-          </div>
-          <span className="text-[0.72rem] font-mono uppercase tracking-wider text-[#6d7e73] font-semibold">
-            {program.hours}
-          </span>
+      {/* Floating Badge on boundary */}
+      <div className="relative px-5 pt-0">
+        <div className="-mt-5 mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white shadow-md border border-[#eeebe3] z-10 transition-transform duration-300 group-hover:scale-110">
+          {renderIcon(program.iconType)}
         </div>
 
         {/* Program Title */}
-        <h3 className="font-serif font-bold text-[#141b16] text-[1.05rem] leading-snug tracking-tight mb-2 group-hover:text-[#2d3d32] transition-colors">
+        <h3 className="font-sans font-bold text-[#141b16] text-[1.05rem] leading-snug tracking-tight min-h-[3rem] line-clamp-2 group-hover:text-[#2d3d32] transition-colors">
           {program.title}
         </h3>
 
-        {/* Tagline */}
-        {program.tagline && (
-          <p className="text-xs text-[#5f7166] leading-relaxed line-clamp-2 mb-4">
-            {program.tagline}
-          </p>
-        )}
-
         {/* Card Footer: Metadata & Action button */}
-        <div className="pt-3 flex items-center justify-between border-t border-[#f0ebe1] text-xs font-semibold text-[#141b16]">
-          <span className="text-[#6d7e73]">{program.duration}</span>
-          <span className="inline-flex items-center gap-1 text-[#2d3d32] group-hover:underline">
-            <span>Explore Program</span>
+        <div className="mt-3 pt-3 pb-5 flex items-center justify-between border-t border-[#f2efe8]">
+          <div className="flex items-center gap-1.5 text-xs font-medium text-[#738278]">
+            <span>{program.duration}</span>
+            <span className="text-[#c1cbc5]">|</span>
+            <span>{program.hours}</span>
+          </div>
+
+          <div className="w-8 h-8 rounded-full bg-[#2d3d32] text-white flex items-center justify-center transition-all duration-200 group-hover:bg-[#1a2920] group-hover:scale-110 shrink-0 shadow-sm">
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-          </span>
+          </div>
         </div>
       </div>
     </Link>

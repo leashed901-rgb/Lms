@@ -199,67 +199,7 @@ export default function Classroom(){
    <button className="wordmark" aria-label="LEASHED Academy" onClick={()=>navigate("lesson")}><LeashedLogo variant="dark" size="xs" /></button>
    <span className="brand-divider"/>
    <div className="learner-id"><span className="avatar">{identity?.name ? identity.name.split(" ").map((s:string)=>s[0]).slice(0,2).join("").toUpperCase() : "AJ"}</span><div><b>{identity?.name || "Avery Johnson"}</b><small>{course?.grade||"Diploma"} <span>· {identity?.email ? "Authenticated" : "Leashed learner"}</span></small></div></div>
-    <label className="course-switch">
-      <BookOpen size={17}/>
-      <select
-        aria-label="Active course and module"
-        value={`${active}-${day?.currentLesson ?? 0}`}
-        disabled={!!busy || locked || !courses.length}
-        onChange={(e) => {
-          const [cid, lidx] = e.target.value.split("-").map(Number);
-          if (cid !== active) {
-            void changeCourse(cid);
-          } else if (snap?.day && lessons[lidx]) {
-            setSnap((prev: any) => ({
-              ...prev,
-              day: {
-                ...prev.day,
-                currentLesson: lidx,
-                currentItem: lessons[lidx]?.checks?.[0] || lessons[lidx]?.title,
-                activeWorkKind: "LESSON",
-              },
-            }));
-            setBookPage(lidx);
-            setFocusTab("learn");
-          }
-        }}
-      >
-        {!courses.length && <option value="0-0">Your classroom</option>}
-        {(() => {
-          const act = (course?.title || "").toLowerCase();
-          const filtered = courses.filter((c) => {
-            if (c.id === active) return true;
-            const t = (c.title || "").toLowerCase();
-            if (act.includes("groom") && t.includes("groom")) return true;
-            if (act.includes("train") && t.includes("train")) return true;
-            if (act.includes("sit") && (t.includes("sit") || t.includes("care"))) return true;
-            if (act.includes("cat") && t.includes("cat")) return true;
-            if (act.includes("business") && t.includes("business")) return true;
-            return false;
-          });
-          const list = filtered.length > 0 ? filtered : [course || courses[0]].filter(Boolean);
-          return list.map((c: any) => {
-            const cLessons = c.companion?.sections || [];
-            if (!cLessons.length) {
-              return (
-                <option key={c.id} value={`${c.id}-0`}>
-                  {short(c)}
-                </option>
-              );
-            }
-            return (
-              <optgroup key={c.id} label={`${short(c)} · Enrolled Pathway`}>
-                {cLessons.map((sec: any, idx: number) => (
-                  <option key={`${c.id}-${idx}`} value={`${c.id}-${idx}`}>
-                    Term {idx + 1}: {sec.title.length > 42 ? sec.title.slice(0, 40) + "..." : sec.title}
-                  </option>
-                ))}
-              </optgroup>
-            );
-          });
-        })()}
-      </select>
-    </label>
+   <label className="course-switch"><BookOpen size={17}/><select aria-label="Active course" value={active} disabled={!!busy||locked||!courses.length} onChange={e=>changeCourse(Number(e.target.value))}>{!courses.length&&<option value={0}>Your classroom</option>}{courses.map(c=><option key={c.id} value={c.id}>{short(c)}</option>)}</select></label>
    <div className="search-wrap"><Search size={16}/><input aria-label="Search classroom" placeholder="Find a lesson, course or task" value={search} onChange={e=>setSearch(e.target.value)}/>{search&&<button aria-label="Close search" onClick={()=>setSearch("")}><X size={15}/></button>}{search&&<div className="search-results">{filteredCourses.map(c=><button key={c.id} onClick={()=>{setSearch("");void changeCourse(c.id)}}><BookOpen size={15}/><span>{short(c)}<small>Enrolled course</small></span></button>)}{searchItems.map(i=><button key={i.course.id+i.key} onClick={()=>{setSearch("");void startWork(i)}}><FileText size={15}/><span>{i.title}<small>{short(i.course)} · {i.kind}</small></span></button>)}{!filteredCourses.length&&!searchItems.length&&<p>No matching courses or tasks.</p>}</div>}</div>
    <span className="sample-label">DEMO WORKSPACE</span>
    <button className="icon-btn notifications" aria-label="Open inbox" onClick={()=>navigate("inbox")}><Bell size={19}/>{ws.messages.length>0&&<i/>}</button>
