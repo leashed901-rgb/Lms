@@ -187,87 +187,87 @@ export function CoursesCatalogView() {
       <Navbar activeNav="Courses" />
 
       {/* Hero Header Banner */}
-      <section className="relative w-full bg-[#16221a] text-white overflow-hidden">
-        <div className="w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-semibold uppercase tracking-wider text-[#ebdcc8] backdrop-blur-md">
-                <GraduationCap className="w-3.5 h-3.5 text-[#d9b589]" />
-                <span>ACADEMY CURRICULUM &amp; SYLLABUS</span>
-              </div>
+      <section className="relative w-full min-h-[380px] lg:min-h-[420px] bg-[#121c15] text-white overflow-hidden flex items-center">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/pets_caregiver.jpg"
+            alt="LEASHED Academy Courses"
+            fill
+            priority
+            className="object-cover object-center opacity-30 mix-blend-luminosity"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0d1510] via-[#121c15]/90 to-[#121c15]/50" />
+        </div>
 
-              <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-                View All Academy Courses
-              </h1>
-              <p className="text-[#d8e5dc] text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
-                Explore our complete curriculum of 6 integrated career pathways and over 160 accredited course modules. Search by specific module code, safety gate, skill, or credential, and jump directly into the full term-by-term syllabus.
-              </p>
-
-              {/* Quick Route Shortcut to Enroll */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <Link
-                  href="/enroll"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#ebdcc8] hover:bg-[#dfcdb7] text-[#141b16] font-bold text-xs transition-colors shadow-sm"
-                >
-                  <span>Get Started / Enroll Now</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <Link
-                  href="/classroom"
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 transition-colors"
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-[#ecd2af]" />
-                  <span>Interactive AI Classroom</span>
-                </Link>
-              </div>
-
-              {/* 3 Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-4 border-t border-white/15">
-                <div className="p-2.5 rounded-xl bg-white/[0.07] border border-white/15">
-                  <div className="flex items-center gap-2 text-[#ecd2af] mb-0.5">
-                    <Award className="w-4 h-4" />
-                    <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[#a8bba9]">6 Pathways</span>
-                  </div>
-                  <p className="text-[0.75rem] text-[#cad8ce]">
-                    Grooming, training, sitting, daycare, cat care, business.
-                  </p>
-                </div>
-
-                <div className="p-2.5 rounded-xl bg-white/[0.07] border border-white/15">
-                  <div className="flex items-center gap-2 text-[#ecd2af] mb-0.5">
-                    <Clock className="w-4 h-4" />
-                    <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[#a8bba9]">Flexible Formats</span>
-                  </div>
-                  <p className="text-[0.75rem] text-[#cad8ce]">
-                    6 to 52 weeks with hybrid and practicum tracks.
-                  </p>
-                </div>
-
-                <div className="p-2.5 rounded-xl bg-white/[0.07] border border-white/15">
-                  <div className="flex items-center gap-2 text-[#ecd2af] mb-0.5">
-                    <BookOpen className="w-4 h-4" />
-                    <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[#a8bba9]">Live Practicum</span>
-                  </div>
-                  <p className="text-[0.75rem] text-[#cad8ce]">
-                    Safety gates, live client animals, and portfolios.
-                  </p>
-                </div>
-              </div>
+        <div className="relative z-10 w-full max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold uppercase tracking-wider text-[#ebdcc8] mb-4 backdrop-blur-sm">
+              <GraduationCap className="w-3.5 h-3.5 text-[#d9b589]" />
+              <span>ACADEMY CURRICULUM &amp; SYLLABUS</span>
             </div>
 
-            {/* Right Photo Column - Bright, Crisp, Un-darkened */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-white/15">
-                <Image
-                  src="/images/pets_caregiver.jpg"
-                  alt="LEASHED Academy Students"
-                  fill
-                  priority
-                  className="object-cover object-center brightness-100 contrast-[1.02]"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white font-mono text-[0.7rem] font-bold border border-white/20">
-                  Accredited Program Delivery Guide
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+              View All Academy Courses
+            </h1>
+            <p className="text-[#d5e0d8] text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
+              Explore our complete curriculum of 6 integrated career pathways and over 160 accredited course modules. Search by specific module code, safety gate, skill, or credential, and jump directly into the full term-by-term syllabus.
+            </p>
+
+            {/* Quick Route Shortcuts to Enroll and Classroom */}
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              <Link
+                href="/enroll"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#ebdcc8] hover:bg-[#dfcdb7] text-[#141b16] font-bold text-xs transition-colors shadow-sm"
+              >
+                <span>Get Started / Enroll</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+              <Link
+                href="/classroom"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#2a3c2e] hover:bg-[#344b39] text-[#e0eedf] font-bold text-xs border border-white/15 transition-colors"
+              >
+                <PawPrint className="w-3.5 h-3.5 text-[#d9b589]" />
+                <span>Classroom Portal</span>
+              </Link>
+            </div>
+
+            {/* 3 Pillars */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-[#d9b589] shrink-0">
+                  <Award className="w-4 h-4" />
+                </div>
+                <div>
+                  <h2 className="text-xs font-bold text-white uppercase tracking-wider">6 Career Pathways</h2>
+                  <p className="text-[0.75rem] text-[#b3c4b8] mt-0.5">
+                    Grooming, training, pet sitting, daycare, cat care, business.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-[#d9b589] shrink-0">
+                  <Clock className="w-4 h-4" />
+                </div>
+                <div>
+                  <h2 className="text-xs font-bold text-white uppercase tracking-wider">Self-Paced &amp; Full-Time</h2>
+                  <p className="text-[0.75rem] text-[#b3c4b8] mt-0.5">
+                    Flexible study tracks from 6 weeks to 52 weeks total.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-[#d9b589] shrink-0">
+                  <BookOpen className="w-4 h-4" />
+                </div>
+                <div>
+                  <h2 className="text-xs font-bold text-white uppercase tracking-wider">Hands-On Practicum</h2>
+                  <p className="text-[0.75rem] text-[#b3c4b8] mt-0.5">
+                    Live client animals, safety gates, and professional portfolios.
+                  </p>
                 </div>
               </div>
             </div>
@@ -539,70 +539,70 @@ export function CoursesCatalogView() {
                       return (
                         <div
                           key={program.id}
-                          className="bg-white rounded-2xl border border-stone-200/80 overflow-hidden shadow-xs hover:shadow-md hover:border-stone-300 transition-all flex flex-col justify-between"
+                          className="bg-white rounded-2xl border border-[#e8dfcf] overflow-hidden shadow-sm hover:shadow-md hover:border-[#cfbda4] transition-all flex flex-col justify-between"
                         >
                           <div>
-                            {/* Top Image Banner with Badges - Crisp & Bright */}
-                            <div className="relative w-full aspect-[16/9] bg-stone-100 overflow-hidden">
+                            {/* Top Image Banner with Badges */}
+                            <div className="relative w-full h-48 bg-[#233327]">
                               <Image
                                 src={program.heroImage}
                                 alt={program.title}
                                 fill
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                className="object-cover object-center brightness-100 contrast-[1.01] transition-transform duration-500 hover:scale-105"
+                                className="object-cover"
                                 referrerPolicy="no-referrer"
                               />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                               <div className="absolute top-3 left-3">
-                                <span className="px-2.5 py-1 rounded-full bg-white/95 text-stone-900 font-mono font-bold text-[0.68rem] tracking-wider uppercase backdrop-blur-md shadow-xs border border-stone-200/60">
+                                <span className="px-2.5 py-1 rounded-full bg-[#1b271e]/90 text-[#ebdcc8] font-bold text-[0.68rem] tracking-wider uppercase backdrop-blur-sm border border-white/10">
                                   {program.code}
                                 </span>
                               </div>
-                              <div className="absolute top-3 right-3">
-                                <span className="px-2.5 py-1 rounded-full bg-[#16221a]/85 text-emerald-300 font-sans font-medium text-[0.68rem] tracking-wider uppercase backdrop-blur-md shadow-xs border border-white/10">
+                              <div className="absolute bottom-3 left-3 right-3 text-white">
+                                <span className="text-[0.7rem] uppercase tracking-wider text-[#d9b589] font-bold block mb-0.5">
                                   {program.credential}
                                 </span>
+                                <h3 className="font-serif text-lg font-bold leading-snug drop-shadow-sm line-clamp-1">
+                                  {program.title}
+                                </h3>
                               </div>
                             </div>
 
                             {/* Card Body */}
                             <div className="p-5">
-                              <h3 className="font-serif text-lg font-bold text-stone-900 leading-snug mb-1.5 line-clamp-1">
-                                {program.title}
-                              </h3>
-                              <p className="text-xs text-stone-600 leading-relaxed mb-4 line-clamp-2">
+                              <p className="text-xs text-[#526357] leading-relaxed mb-4 line-clamp-2">
                                 {program.subtitle}
                               </p>
 
                               {/* 3 Metric Pills */}
-                              <div className="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-stone-50 border border-stone-200/60 text-center mb-4">
+                              <div className="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-[#fbf9f5] border border-[#eee4d2] text-center mb-4">
                                 <div>
-                                  <div className="text-[0.68rem] text-stone-500 font-semibold uppercase">Duration</div>
-                                  <div className="text-xs font-bold text-stone-900">{program.totalWeeks} Wks</div>
+                                  <div className="text-[0.68rem] text-[#708075] font-semibold uppercase">Duration</div>
+                                  <div className="text-xs font-bold text-[#141b16]">{program.totalWeeks} Wks</div>
                                 </div>
-                                <div className="border-x border-stone-200">
-                                  <div className="text-[0.68rem] text-stone-500 font-semibold uppercase">Modules</div>
-                                  <div className="text-xs font-bold text-stone-900">{program.totalModules}</div>
+                                <div className="border-x border-[#e8dfcf]">
+                                  <div className="text-[0.68rem] text-[#708075] font-semibold uppercase">Modules</div>
+                                  <div className="text-xs font-bold text-[#141b16]">{program.totalModules}</div>
                                 </div>
                                 <div>
-                                  <div className="text-[0.68rem] text-stone-500 font-semibold uppercase">Clock Hrs</div>
-                                  <div className="text-xs font-bold text-stone-900">{program.totalClockHours}</div>
+                                  <div className="text-[0.68rem] text-[#708075] font-semibold uppercase">Clock Hrs</div>
+                                  <div className="text-xs font-bold text-[#141b16]">{program.totalClockHours}</div>
                                 </div>
                               </div>
 
                               {/* Matched Modules Indicator (when user searches) */}
                               {matchedModules.length > 0 && searchQuery && (
-                                <div className="mb-4 p-2.5 rounded-xl bg-amber-50/80 border border-amber-200/60 text-xs">
-                                  <div className="text-[0.68rem] font-bold text-amber-900 uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                                    <Sparkles className="w-3 h-3 text-amber-700" />
+                                <div className="mb-4 p-2.5 rounded-xl bg-[#f5f1e8] border border-[#e8decb] text-xs">
+                                  <div className="text-[0.68rem] font-bold text-[#4e5b41] uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                                    <Sparkles className="w-3 h-3 text-[#4e5b41]" />
                                     <span>Matched Courses in this Track ({matchedModules.length})</span>
                                   </div>
                                   <div className="space-y-1">
                                     {matchedModules.slice(0, 2).map((m) => (
-                                      <div key={m.code} className="flex items-center gap-1.5 text-[0.72rem] text-stone-800">
-                                        <span className="font-mono font-bold text-emerald-800">{m.code}:</span>
+                                      <div key={m.code} className="flex items-center gap-1.5 text-[0.72rem] text-[#2c3d31]">
+                                        <span className="font-mono font-bold text-[#4e5b41]">{m.code}:</span>
                                         <span className="truncate">{m.title}</span>
                                         {m.safetyGate && (
-                                          <span className="shrink-0 text-[0.62rem] px-1 rounded bg-rose-600 text-white font-bold">
+                                          <span className="shrink-0 text-[0.62rem] px-1 rounded bg-[#b54a35] text-white font-bold">
                                             Safety Gate
                                           </span>
                                         )}
@@ -611,7 +611,7 @@ export function CoursesCatalogView() {
                                     {matchedModules.length > 2 && (
                                       <button
                                         onClick={() => setViewMode('modules')}
-                                        className="text-[0.68rem] font-bold text-emerald-800 hover:underline block pt-1"
+                                        className="text-[0.68rem] font-bold text-[#4e5b41] hover:underline block pt-1"
                                       >
                                         + {matchedModules.length - 2} more matching modules in catalog →
                                       </button>
@@ -622,16 +622,16 @@ export function CoursesCatalogView() {
 
                               {/* 4 Term Breadcrumb Pills */}
                               <div className="space-y-1.5 mb-4">
-                                <div className="text-[0.68rem] font-bold uppercase tracking-wider text-stone-500">
+                                <div className="text-[0.68rem] font-bold uppercase tracking-wider text-[#637367]">
                                   4-Term Integrated Curriculum:
                                 </div>
-                                <div className="grid grid-cols-2 gap-1.5 text-[0.72rem] text-stone-700">
+                                <div className="grid grid-cols-2 gap-1.5 text-[0.72rem] text-[#2b3a2f]">
                                   {program.terms.map((t) => (
                                     <div
                                       key={t.termNumber}
-                                      className="px-2 py-1 rounded-lg bg-stone-100/80 border border-stone-200/50 truncate font-medium flex items-center gap-1"
+                                      className="px-2 py-1 rounded bg-[#f4efe5] truncate font-medium flex items-center gap-1"
                                     >
-                                      <span className="font-bold text-emerald-800">T{t.termNumber}:</span>
+                                      <span className="font-bold text-[#4e5b41]">T{t.termNumber}:</span>
                                       <span className="truncate">{t.name}</span>
                                     </div>
                                   ))}
@@ -641,22 +641,22 @@ export function CoursesCatalogView() {
                           </div>
 
                           {/* Card Actions Footer */}
-                          <div className="p-5 pt-0 flex items-center justify-between gap-3 border-t border-stone-100 mt-2">
+                          <div className="p-5 pt-0 flex items-center justify-between gap-3 border-t border-[#f0e8dc] mt-2">
                             {/* Basic Info Quick Modal Button */}
                             <button
                               onClick={() => setActiveCourseModal(program)}
-                              className="text-xs font-semibold text-stone-600 hover:text-stone-900 underline underline-offset-2"
+                              className="text-xs font-semibold text-[#506055] hover:text-[#141b16] underline underline-offset-2"
                             >
-                              Quick Overview
+                              Quick Info
                             </button>
 
                             {/* See More Button Routing to Dedicated Course Page & Syllabus */}
                             <Link
                               href={`/courses/${program.slug}`}
-                              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#16221a] hover:bg-[#25392c] text-white font-bold text-xs transition-colors shadow-xs"
+                              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#4e5b41] hover:bg-[#3b4731] text-white font-bold text-xs transition-colors shadow-sm"
                             >
-                              <span>Full Syllabus &amp; Schedule</span>
-                              <ArrowRight className="w-3.5 h-3.5 text-[#ecd2af]" />
+                              <span>See More &amp; Syllabus</span>
+                              <ArrowRight className="w-3.5 h-3.5" />
                             </Link>
                           </div>
                         </div>
@@ -786,6 +786,13 @@ export function CoursesCatalogView() {
                   className="px-6 py-3 rounded-full bg-[#ebdcc8] hover:bg-[#dfcdb7] text-[#141b16] font-bold text-xs transition-colors shadow-sm inline-flex items-center gap-2"
                 >
                   <span>Get Started / Enroll</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <Link
+                  href="/classroom"
+                  className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/15 transition-colors inline-flex items-center gap-2"
+                >
+                  <span>Learner Classroom</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
